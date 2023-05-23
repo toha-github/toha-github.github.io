@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="typing-icon.svg" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>Typing Speed Test</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Typing Speed Test</h1>
+
+      <div class="content">
+        <header>
+          <div class="statistics">
+            <label>Correct: <span id="correct">0</span></label>
+            <label>Errors: <span id="errors">0</span></label>
+            <label>Time: <span id="time">10</span></label>
+          </div>
+
+          <button>Start</button>
+        </header>
+
+        <div class="text-container">
+          <p class="typed"></p>
+
+          <p class="text">
+            <span class="untyped"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="timer.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
