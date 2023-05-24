@@ -56,7 +56,8 @@ button.onclick = function () {
   showStatistics();
 
   typed.setAttribute("contenteditable", true);
-  typed.onkeydown = onKeyDown;
+  // typed.onkeydown = onKeyDown;
+  typed.onbeforeinput = onKeyDown;
   typed.focus();
   scrollToUntyped();
 
@@ -64,11 +65,18 @@ button.onclick = function () {
   timer.start();
 };
 
+//
+typed.onbeforeinput = function (e) {
+  console.log(e.data);
+  e.preventDefault();
+};
+
 // keydown
 function onKeyDown(e) {
   e.preventDefault();
 
-  const key = correctChar(e.key);
+  // const key = correctChar(e.key);
+  const key = correctChar(e.data);
   if (!isChar(key)) return;
 
   const src = untyped.textContent;
@@ -88,7 +96,8 @@ function onKeyDown(e) {
 
   if (untyped.textContent.length < 1) {
     timer.stop();
-    typed.onkeydown = undefined;
+    // typed.onkeydown = undefined;
+    typed.onbeforeinput = undefined;
     typed.removeAttribute("contenteditable");
     document.documentElement.scrollTop = 0;
   }
@@ -109,7 +118,7 @@ function correctChar(key) {
 }
 
 function isChar(key) {
-  if (key.length > 1) return false;
+  if (!key || !key.length || key.length > 1) return false;
   return true;
 }
 
